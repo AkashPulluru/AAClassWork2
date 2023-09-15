@@ -20,6 +20,32 @@ def my_min2(list)
     return value
 end 
 
+def sub_sum1(list)
+    array = [] 
+    value = 0
+    finalarray = []
+    length = list.length 
+    list.each.with_index do |num, start_index|
+        (start_index..length-1).each do |end_index|
+            array << list[start_index..end_index]
+        end 
+    end 
 
-list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
-p my_min2(list)  # =>  -5
+    array.each do |subarray|
+        subarray_value = 0 
+        subarray.each do |number|
+            subarray_value += number 
+        end 
+        
+        if subarray_value > value 
+            finalarray = subarray 
+            value = subarray_value 
+        end 
+    end 
+
+    return value 
+
+end 
+
+list = [5, 3, -7]
+p sub_sum1(list) # => 8
