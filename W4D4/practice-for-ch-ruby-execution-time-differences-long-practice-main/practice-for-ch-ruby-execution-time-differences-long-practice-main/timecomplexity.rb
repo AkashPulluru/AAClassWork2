@@ -10,3 +10,16 @@ def my_min1(list)
     return value 
 end 
 
+def my_min2(list)
+    value = list[0]
+    list.each do |num|
+        if num < value
+            value = num 
+        end 
+    end 
+    return value
+end 
+
+
+list = [ 0, 3, 5, 4, -5, 10, 1, 90 ]
+p my_min2(list)  # =>  -5
