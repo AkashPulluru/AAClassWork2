@@ -47,5 +47,19 @@ def sub_sum1(list)
 
 end 
 
+def sub_sum2(list)
+    return 0 if list.empty?
+
+    max_sum = list[0]
+    current_sum = list[0]
+
+    list[1..].each do |num|
+        current_sum = [num, current_sum + num].max
+        max_sum = [max_sum, current_sum].max
+    end
+
+    max_sum
+end
+
 list = [5, 3, -7]
-p sub_sum1(list) # => 8
+p sub_sum2(list) # => 8
